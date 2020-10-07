@@ -1,0 +1,56 @@
+#PMain 
+{
+font-size: 100px;
+color: azure;
+margin-top: 100px;
+font-family:cursive;
+}
+.GenBtn
+{
+color: rgb(255, 255, 255);
+background-color: rgb(180, 0, 156);
+font-family:cursive;
+}
+#T 
+{
+font-size: 100px;
+color: azure;
+font-family:cursive;
+margin-top: 20px;
+}
+#UT 
+{
+font-size: 20px;
+color: azure;
+font-family:cursive;
+margin-top: -50px;
+}
+.IDBtn
+{
+color: rgb(255, 255, 255);
+background-color: #b4009c;
+font-family:cursive;
+outline: none;
+margin-top: 10px;
+margin-bottom: 10px;
+margin-left: 80px;
+visibility:hidden;
+}
+.background 
+{
+    height: 100%;
+    width: 100%;
+    left:0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+  background: linear-gradient(124deg, #a50000, #6b0036, #6d1065);
+  background-size: 1800% 1800%; /* sets the background to a linear gradient and defines the colors used in the gradient*/
+  animation: colors 18s ease infinite;
+}
+  @keyframes colors {
+      0%{background-position:0% 82%} /*Specifies the 0% position for the linear gradient image*/
+      50%{background-position:100% 19%} /*specifies the 50% position for the linear gradient image*/
+      100%{background-position:0% 82%}/*specifies the 100% position for the linear gradient image*/
+  }  
