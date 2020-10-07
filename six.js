@@ -9,20 +9,20 @@ function Generate()
 function AutoGen()
 {
 toggled = !toggled;
-if(toggled == false)
+switch(toggled)
 {
-    clearInterval(Auto);
-    document.getElementById("plus").style.visibility = "hidden";
-    document.getElementById("minus").style.visibility = "hidden";
-    document.getElementById("AutoGen").style.backgroundColor = "#b4009c";
-}
-if(toggled == true)
-{
-    Auto = setInterval(Generate,IntervalTime);
-    document.getElementById("plus").style.visibility = "visible";
-    document.getElementById("minus").style.visibility = "visible";
-    document.getElementById("AutoGen").style.backgroundColor = "#ff7afb";
-}
+    case "true":
+        clearInterval(Auto);
+        document.getElementById("plus").style.visibility = "hidden";
+        document.getElementById("minus").style.visibility = "hidden";
+        document.getElementById("AutoGen").style.backgroundColor = "#b4009c";
+        break;
+    case "false":
+        Auto = setInterval(Generate,IntervalTime);
+        document.getElementById("plus").style.visibility = "visible";
+        document.getElementById("minus").style.visibility = "visible";
+        document.getElementById("AutoGen").style.backgroundColor = "#ff7afb";
+        break;
 }
 
 function plus()
