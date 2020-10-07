@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en"class=background>
+<head>
+<style>
+#PMain 
+{
+font-size: 100px;
+color: azure;
+margin-top: 100px;
+font-family:cursive;
+}
+.GenBtn
+{
+color: rgb(255, 255, 255);
+background-color: rgb(180, 0, 156);
+font-family:cursive;
+}
+#T 
+{
+font-size: 100px;
+color: azure;
+font-family:cursive;
+margin-top: 20px;
+}
+#UT 
+{
+font-size: 20px;
+color: azure;
+font-family:cursive;
+margin-top: -50px;
+}
+.IDBtn
+{
+color: rgb(255, 255, 255);
+background-color: #b4009c;
+font-family:cursive;
+outline: none;
+margin-top: 10px;
+margin-bottom: 10px;
+margin-left: 80px;
+visibility:hidden;
+}
+.background 
+{
+    height: 100%;
+    width: 100%;
+    left:0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+  background: linear-gradient(124deg, #a50000, #6b0036, #6d1065);
+  background-size: 1800% 1800%; /* sets the background to a linear gradient and defines the colors used in the gradient*/
+  animation: colors 18s ease infinite;
+}
+  @keyframes colors {
+      0%{background-position:0% 82%} /*Specifies the 0% position for the linear gradient image*/
+      50%{background-position:100% 19%} /*specifies the 50% position for the linear gradient image*/
+      100%{background-position:0% 82%}/*specifies the 100% position for the linear gradient image*/
+  }  
+</style>
+</head>
+<div align="center">
+<h1 id="T">
+69 Generator
+</h1>
+<p id="UT">
+Do you really need an explanation?
+</p>
+<button id="plus" class="IDBtn" onclick="plus()" style="margin-top: 200px">
++ 
+</button>
+<br>
+<button onclick="Generate()" class="GenBtn">
+Generate
+</button>
+<button onclick="AutoGen()" id="AutoGen" class="GenBtn">
+Auto
+</button>
+<br>
+<button id="minus" class="IDBtn" onclick="minus()">
+-
+</button>
+<p id="PMain">
+0
+</p>
+</div>
+<script>
+
+var toggled = false;
+var IntervalTime = 500;
+
+function Generate()
+{
+    var rando = Math.floor(Math.random() * 10000) + 0;
+    document.getElementById("PMain").innerHTML = (rando);
+}
+function AutoGen()
+{
+toggled = !toggled;
+if(toggled == false)
+{
+    clearInterval(Auto);
+    document.getElementById("plus").style.visibility = "hidden";
+    document.getElementById("minus").style.visibility = "hidden";
+    document.getElementById("AutoGen").style.backgroundColor = "#b4009c";
+}
+if(toggled == true)
+{
+    Auto = setInterval(Generate,IntervalTime);
+    document.getElementById("plus").style.visibility = "visible";
+    document.getElementById("minus").style.visibility = "visible";
+    document.getElementById("AutoGen").style.backgroundColor = "#ff7afb";
+}
+}
+
+function plus()
+{
+    if(IntervalTime >= 200)
+    {
+        IntervalTime -= 100;
+        clearInterval(Auto);
+        Auto = setInterval(Generate,IntervalTime);
+        
+    }
+    if(IntervalTime == 100)
+    {
+        document.getElementById("plus").disabled = true;
+        document.getElementById("plus").style.color = "#7d7d7d";
+        document.getElementById("plus").style.backgroundColor = "#6b005d";
+    }
+    document.getElementById("minus").disabled = false;
+    document.getElementById("minus").style.color = "#ffffff";
+    document.getElementById("minus").style.backgroundColor = "#b4009c";  
+}
+function minus()
+{
+    if(IntervalTime <= 400)
+    {
+        IntervalTime += 100;
+        clearInterval(Auto);
+        Auto = setInterval(Generate,IntervalTime);
+        
+    }
+    if(IntervalTime == 500)
+    {
+        document.getElementById("minus").disabled = true;
+        document.getElementById("minus").style.color = "#7d7d7d";
+        document.getElementById("minus").style.backgroundColor = "#6b005d";
+    }
+    document.getElementById("plus").disabled = false;
+    document.getElementById("plus").style.color = "#ffffff";
+    document.getElementById("plus").style.backgroundColor = "#b4009c";
+}
+</script>
